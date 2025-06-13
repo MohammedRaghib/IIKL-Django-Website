@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 from decouple import config
 import cloudinary
-
+import logging
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -158,3 +158,18 @@ AUTH_USER_MODEL = 'custom_user_model.CustomUser'
 
 # Login redirect URL
 LOGIN_REDIRECT_URL = '/'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
