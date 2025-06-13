@@ -1,0 +1,81 @@
+:root {
+  --color-bg: #fef6e4;
+  --color-primary: #3e2c74;
+  --color-accent: #f2c94c;
+  --color-accent-hover: #f7d94c;
+  --color-about-bg: #b9a6d9;
+  --color-footer-bg: #8a7bc1;
+  --color-progress: #8a7bc1;
+  --color-overlay: rgba(0, 0, 0, 0.3);
+
+  --alert-success-bg: #e0d4f7;
+  --alert-success-text: #155724;
+  --alert-success-border: #c3e6cb;
+
+  --alert-error-bg: #ffe0e0;
+  --alert-error-text: #721c24;
+  --alert-error-border: #f5c6cb;
+
+  --alert-warning-bg: #fff3cd;
+  --alert-warning-text: #856404;
+  --alert-warning-border: #ffeeba;
+
+  --alert-info-bg: #d1ecf1;
+  --alert-info-text: #0c5460;
+  --alert-info-border: #bee5eb;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+}
+
+.alert-success {
+  background-color: var(--alert-success-bg);
+  border-color: var(--alert-success-border);
+  color: var(--alert-success-text);
+}
+
+.alert-error {
+  background-color: var(--alert-error-bg);
+  border-color: var(--alert-error-border);
+  color: var(--alert-error-text);
+}
+
+.alert-warning {
+  background-color: var(--alert-warning-bg);
+  border-color: var(--alert-warning-border);
+  color: var(--alert-warning-text);
+}
+
+.alert-info {
+  background-color: var(--alert-info-bg);
+  border-color: var(--alert-info-border);
+  color: var(--alert-info-text);
+}

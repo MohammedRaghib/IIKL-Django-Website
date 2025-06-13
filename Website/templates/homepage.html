@@ -1,0 +1,460 @@
+<style>
+    header {
+        /* width: 100%; */
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .logo-circle {
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-text {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+    }
+
+    nav.desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    nav.desktop-nav a {
+        color: var(--color-primary);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav.desktop-nav a:hover {
+        text-decoration: underline;
+    }
+
+    nav.desktop-nav .sign-in-btn {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    nav.desktop-nav .sign-in-btn:hover {
+        background-color: var(--color-accent-hover);
+    }
+
+    button#menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-primary);
+        font-size: 1.25rem;
+        cursor: pointer;
+        z-index: 30;
+    }
+
+    main {
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-grow: 1;
+    }
+
+    section.hero {
+        background-color: var(--color-primary);
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 3rem;
+    }
+
+    section.hero p {
+        color: var(--color-bg);
+    }
+
+    .hero-tools {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        height: 100%;
+        width: 50%;
+    }
+
+    .hero-tools img {
+        width: 100%;
+        border-radius: 15px;
+        display: block;
+    }
+
+    .hero-text {
+        color: var(--color-bg);
+        max-width: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        font-size: 2.5rem;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .hero-text p {
+        font-size: 1.125rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .hero-text button {
+        background-color: var(--color-accent);
+        color: var(--color-primary);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        cursor: pointer;
+        width: max-content;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-text button:hover {
+        background-color: var(--color-accent-hover);
+    }
+
+    section.about {
+        background-color: var(--color-about-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        color: var(--color-primary);
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    section.about h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    section.about p {
+        font-size: 1.125rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    section.featured {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    section.featured h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--color-primary);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .product-card {
+        background-color: var(--color-about-bg);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        color: var(--color-primary);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .product-card h3 {
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin: 0;
+    }
+
+    .product-card p.price {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .product-progress {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .progress-bar {
+        height: 0.5rem;
+        border-radius: 9999px;
+        background-color: var(--color-progress);
+    }
+
+    .progress-bar.w-3-4 {
+        width: 75%;
+    }
+
+    .progress-bar.w-1-2 {
+        width: 50%;
+    }
+
+    footer {
+        margin-top: 2rem;
+        padding: 1.5rem 1.5rem;
+        color: var(--color-primary);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        background-color: var(--color-footer-bg);
+    }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+        .products-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        section.hero {
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 3rem;
+        }
+
+        .hero-tools {
+            justify-content: flex-start;
+            max-width: none;
+        }
+
+        .hero-text {
+            max-width: 20rem;
+            text-align: left;
+        }
+
+        nav.desktop-nav {
+            display: flex !important;
+        }
+
+        button#menu-btn {
+            display: none !important;
+        }
+
+        #sidebar,
+        #overlay {
+            display: none !important;
+        }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 639px) {
+        nav.desktop-nav {
+            display: none !important;
+        }
+
+        button#menu-btn {
+            display: block !important;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 16rem;
+            background-color: var(--color-bg);
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        #sidebar .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--color-primary);
+        }
+
+        #close-btn {
+            background: none;
+            border: none;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            padding: 1rem;
+            align-self: flex-end;
+            cursor: pointer;
+        }
+
+        #sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem 1.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--color-primary);
+        }
+
+        #sidebar nav a {
+            color: var(--color-primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #sidebar nav a:hover {
+            text-decoration: underline;
+        }
+
+        #sidebar nav .sign-in-btn {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            width: max-content;
+            transition: background-color 0.3s ease;
+        }
+
+        #sidebar nav .sign-in-btn:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background-color: var(--color-overlay);
+            z-index: 30;
+            display: none;
+        }
+
+        #overlay.active {
+            display: block;
+        }
+
+        .hero-tools {
+            width: 100%;
+        }
+
+        .hero-tools img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            align-items: center;
+        }
+
+        .hero-text button {
+            margin: 0 auto;
+        }
+    }
+</style>
+<main>
+    <section class="hero">
+        <div class="hero-tools">
+            <img alt="Yellow drill tool with black details on purple background"
+                src="https://storage.googleapis.com/a1aa/image/c9b8650f-107e-4386-6e5c-a0fdaa8fa7b8.jpg" />
+        </div>
+        <div class="hero-text">
+            <h1>
+                QUALITY<br />TOOLS &amp;<br />SUPPLIES
+            </h1>
+            <p>
+                Your one-stop shop for tools, hardware, and materials.
+            </p>
+        </div>
+    </section>
+    <section class="about">
+        <h2>ABOUT US</h2>
+        <p>
+            At Imperial Ironmongers, we specialize in providing top-quality wholesale tools, hardware, and
+            construction supplies to retailers and buisnesses of all sizes. With a commitment to
+            reliability, competitive pricing, and exceptional service, we help our clients stock up on essential
+            products in bulk—without compromising on quality. Whether you're outfitting a hardware store or managing
+            a large-scale project, we've got the materials to keep you building.
+        </p>
+    </section>
+    <!-- <section class="featured">
+            <h2>FEATURED PRODUCTS</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>Product Name</h3>
+                    <p class="price">$</p>
+                    <div class="product-progress">
+                        <div class="progress-bar w-3-4"></div>
+                        <div class="progress-bar w-1-2"></div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <h3>Product Name</h3>
+                    <p class="price">$</p>
+                    <div class="product-progress">
+                        <div class="progress-bar w-3-4"></div>
+                        <div class="progress-bar w-1-2"></div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <h3>Product Name</h3>
+                    <p class="price">$</p>
+                    <div class="product-progress">
+                        <div class="progress-bar w-3-4"></div>
+                        <div class="progress-bar w-1-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+</main>
+<footer>
+    <p>&copy; Imperial Ironmongers. All rights reserved.</p>
+</footer>

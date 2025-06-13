@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Imperial Ironmongers{% endblock title %}</title>
+    <link rel="favicon" href="{% static 'images/Round Logo.png' %}" type="favicon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <style>
+        body {
+            background-color: var(--color-bg);
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block content %}
+    {% include 'homepage.html' %}
+    {% endblock content %}
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            sidebar.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            sidebar.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            sidebar.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+    </script>
+
+</body>
+
+</html>
