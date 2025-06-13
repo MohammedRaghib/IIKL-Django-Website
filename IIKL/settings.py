@@ -28,7 +28,11 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1', 'http://127.0.0.1:8000/', 'http://localhost:8000/', 'https://imperial-ironmongers-ke-ltd.onrender.com/' ]
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'imperial-ironmongers-ke-ltd.onrender.com'
+]
 
 cloudinary.config(
     cloud_name = config('CLOUDINARY_CLOUD_NAME'),
